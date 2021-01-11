@@ -7,21 +7,22 @@
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
 </head>
 <body>
-
 <a-scene background="color: #FAFAFA">
-    <a-entity rotation="0 0 0">
-        <a-torus-knot position="0 0.5 -3" color="#B84A39" arc="180" p="2" q="7" radius="5" radius-tubular="0.1" shadow></a-torus-knot>
-        <a-text value="Hello, World!-" color="#654321"></a-text>
-        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
-        <a-sphere position="0 1.25 -10" radius="2.25" color="#6AAA6" shadow>
-            <a-ring position="5 2.25 -7" radius="2.25" color="#6AFF46"></a-ring>
-            <a-ring position="-1 2.25 10" radius="2.25" color="#6AFF46"></a-ring>
-        </a-sphere>
-        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
-        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
-    </a-entity>
-</a-scene>
-
-
+        <a-sky src="https://cdn.glitch.com/b870d9ec-1139-44f9-b462-223e4a2c74e7%2Fsechelt.jpg?1490307995926" radius="30"></a-sky>
+        <a-plane src="https://cdn.glitch.com/b870d9ec-1139-44f9-b462-223e4a2c74e7%2Ffloor.jpg?1490307896453" rotation="-90 0 0" height="100" width="100"></a-plane>
+        <a-light type="ambient" color="#666"></a-light>
+        <a-light type="point" intensity="" position="2 4 4"></a-light>
+        <a-entity rotation="0 0 0">
+            <a-torus-knot position="0 0.5 -3" color="#B84A39" arc="180" p="2" q="7" radius="5" radius-tubular="0.1" shadow></a-torus-knot>
+            <a-text position="-0.52382 0.5 -2.37434" value="Hello, World!" color="#654321" text="color: #e40c8a"></a-text>
+                <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
+            <a-sphere position="0 1.25 -10" radius="2.25" color="#6AAA6" shadow>
+                <a-ring position="5 2.25 -7" radius="2.25" color="#6AFF46"></a-ring>
+                <a-ring position="-1 2.25 10" radius="2.25" color="#6AFF46"></a-ring>
+            </a-sphere>
+            <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
+            <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
+        </a-entity>
+    </a-scene>
 </body>
 </html>
