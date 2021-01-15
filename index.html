@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ECS - A-Frame School</title>
-    <meta name="description" content="ECS - A-Frame School">
+    <title>JavaScript - A-Frame School</title>
+    <meta name="description" content="JavaScript - A-Frame School">
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-    <script src= "https://unpkg.com/aframe-animation-component@%5E3.2.x/dist/aframe-animation-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-particle-system-component@1.0.9/dist/aframe-particle-system-component.min.js"></script>
+    <script>
+      AFRAME.registerComponent('school-playground', {
+        /**
+         * Code within this function will be called when everything in <a-scene> is ready and loaded.
+         */
+        init: function () {
+          const sceneEl = document.querySelector('a-scene');
+          console.log(sceneEl);
+          console.log(sceneEl.querySelectorAll('a-entity'));
+          console.log(sceneEl.querySelector('.boxClass').setAttribute('rotation', "10 2 -3"));
+          console.log(sceneEl.querySelector('a-cylinder').setAttribute('geometry', 'height', "0.5"));
+          console.log(sceneEl.querySelector('a-sphere').setAttribute('material', 'metalness', '0.5'));
+        }
+      });
+    </script>
 </head>
 <body>
-<a-scene>
-    <a-entity position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" id="updateMe" geometry="primitive: cube" material="color: #400202"></a-entity>    
-    <a-entity geometry="primitive: sphere; radius: 3000" material="shader: flat" color="#7BC8A4" animation="property: scale, loop: true, and to: 1.1 1.1 1.1"></a-entity>
-    <a-entity id="updateMe" position="-0.98 2.71 -3.61" rotation="0 25 0" geometry="; width: 1.2; primitive: cube"  material="color: blue; alphaTest: NaN"></a-entity>
-    <a-entity id="updateMe" position="0 1.25 -5" radius="1.25" color="#EF2D5E" geometry="; primitive: sphere"  material="color: #bd6565"></a-entity>
-    <a-entity position="1.30487 0.75 -2.90459" radius="0.5" height="1.5" color="#FFC65D" geometry="primitive: cylinder; radius: 0.5; segmentsRadial: 23; thetaLength: 359.81" material="alphaTest: NaN; color: #10b2a7" id="updateMe"></a-entity>    <a-entity position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-entity>
-    <a-entity light="type: point" id="lightSphere" geometry="primitive: sphere" material="shader: flat; color: tomato" rotation="0 94.89610832795896 0" position="0 4 -5" animation="property: position; to: 1 8 5; dur: 20000; easing: linear; loop: true" ></a-entity>
-    <a-entity particle-system="preset: dust; maxAge: 9.95; positionSpread: 1.67 1.39 1.3; accelerationValue: 4.23 3.39 2.84; accelerationSpread: 3.71 2.62 3.78; velocityValue: 3.33 1.13 9.25; velocitySpread: 1.97 2.28 1.4; color: red; size: 2.68; direction: 2.99; duration: 12.41; particleCount: 9.49; randomize: true; opacity: 4.76" material="color: #ff0000"></a-entity>    <a-entity particle-system></a-entity>
-    <a-entity particle-system></a-entity>
-
+<a-scene school-playground>
+    <a-box class="boxClass" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+    <a-sphere class="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+    <a-cylinder class="cylinder" position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+    <a-plane class="plane" position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+    <a-sky class="sky" color="#ECECEC"></a-sky>
 </a-scene>
 </body>
 </html>
