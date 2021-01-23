@@ -16,11 +16,14 @@
           console.log(sceneEl.querySelector('.boxClass').setAttribute('rotation', "10 2 -3"));
           console.log(sceneEl.querySelector('a-cylinder').setAttribute('geometry', 'height', "0.5"));
           console.log(sceneEl.querySelector('a-sphere').setAttribute('material', 'metalness', '0.5'));
-          for (let obj = 0; obj < 50000; obj++) {
+          for (let obj = 0; obj < 500; obj++) {
             // Runs 5 times, with values of step 0 through 4.
             let entityEl = document.createElement('a-entity');
             console.log(entityEl.setAttribute('geometry', 'primitive', "box"));
-            console.log(entityEl.setAttribute('material', 'color', "#4CC3D9"));
+            entityEl.addEventListener('foo', function () {
+              entityEl.setAttribute('material', 'color', "#4CC3D9")
+            });
+            
             console.log(entityEl.setAttribute('position', `${Math.random() * 20 - 10} ${Math.random() * 20 - 10} ${Math.random() * 20 - 10}`));
             console.log(sceneEl.appendChild(entityEl))
           };
