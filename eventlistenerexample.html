@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript - A-Frame School</title>
+    <meta name="description" content="JavaScript - A-Frame School">
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js">
+          AFRAME.registerComponent('school-playground', {
+        /**
+         * Code within this function will be called when everything in <a-scene> is ready and loaded.
+         */
+        init: function () {
+          const sceneEl = document.querySelector('a-scene');
+          console.log(sceneEl);
+          console.log(sceneEl.querySelectorAll('a-entity'));
+          console.log(sceneEl.querySelector('.boxClass').setAttribute('rotation', "10 2 -3"));
+          console.log(sceneEl.querySelector('a-cylinder').setAttribute('geometry', 'height', "0.5"));
+          console.log(sceneEl.querySelector('a-sphere').setAttribute('material', 'metalness', '0.5'));s
+          for (let obj = 0; obj < 500; obj++) {
+            // Runs 5 times, with values of step 0 through 4.
+            let entityEl = document.createElement('a-entity');
+            console.log(entityEl.setAttribute('geometry', 'primitive', "box"));
+            console.log(entityEl.setAttribute('position', `${Math.random() * 20 - 10} ${Math.random() * 20 - 10} ${Math.random() * 20 - 10}`));
+            console.log(sceneEl.appendChild(entityEl))
+          };
+          var targetEl = document.querySelector('.boxClass');
+          targetEl.addEventListener('foo', function() {
+            targetEl.setAttribute('material', {color: 'red'});
+          });
+          targetEl.emit('foo');
+          var entityEl = document.querySelector('a-sphere');
+          var planeEl = document.querySelector('a-plane');
+          entityEl.addEventListener('physicscollided', function (event) {
+            console.log('Entity collided with', event.detail.collidingEntity);
+          });
+          entityEl.emit('physicscollided', {collidingEntity: planeEl}, false );
+
+        }
+      });
+    </script>
+</head>
+<body>
+<a-scene school-playground>
+    <a-box class="boxClass" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+    <a-sphere class="sphere" position="0 5 -5" radius="1.25" color="#EF2D5E" material="" geometry="" velocity="" dynamic-body="sphereRadius: NaN"></a-sphere>
+    <a-cylinder class="cylinder" position="1 0.75 -3" rad   ius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+    <a-plane class="plane" position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" material="" geometry="" velocity="" static-body="sphereRadius: NaN"></a-plane>
+    <a-sky class="sky" color="#ECECEC"></a-sky>
+</a-scene>
+</body>
+</html>
